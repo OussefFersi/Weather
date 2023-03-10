@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Weather  response
 public struct Response: Codable {
     
     let lat: Double
@@ -20,6 +21,7 @@ public struct Response: Codable {
    
 }
 
+/// Current weather info
 public struct Current: Codable {
     let dt: Int
     let sunrise: Int
@@ -37,6 +39,7 @@ public struct Current: Codable {
     public let weather: [Weather]
 }
 
+/// Hourly weather info
 public struct Hourly: Codable {
     public let dt: Int
     public let temp: Double
@@ -54,6 +57,7 @@ public struct Hourly: Codable {
     let pop:Double
 }
 
+/// Daily weather info
 public struct Daily: Codable {
     public let dt: Int
     let sunrise: Int
@@ -75,6 +79,7 @@ public struct Daily: Codable {
     let uvi: Double
 }
 
+/// Daily weather temperature info
 public struct Temperature: Codable {
     let day: Double
     let min: Double
@@ -84,6 +89,7 @@ public struct Temperature: Codable {
     let morn: Double
 }
 
+/// /// Daily weather temperature feels like  info
 public struct FeelsLike: Codable {
     let day: Double
     let night: Double
