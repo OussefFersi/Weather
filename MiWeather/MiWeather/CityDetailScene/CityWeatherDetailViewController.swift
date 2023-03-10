@@ -9,6 +9,7 @@ import UIKit
 
 class CityWeatherDetailViewController: UIViewController {
     
+    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var currentWeatherIcon: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -25,10 +26,26 @@ class CityWeatherDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "WeatherCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WeatherCollectionViewCell")
         
+        
+        
         viewModel = CityWeatherDetailViewModel()
+        
+        viewModel?.onLoading = { [weak self] isLoading in
+            DispatchQueue.main.async {
+                if(isLoading){
+                    self?.activityLoader?.startAnimating()
+                }else{
+                    self?.activityLoader?.stopAnimating()
+                }
+                
+            }
+        }
+        
         if let city = city {
             viewModel?.getWeather(latitude: city.latitude, longitude: city.longitude)
         }
+        
+        
         
         viewModel?.onCurrentWeather = { [weak self] in
             DispatchQueue.main.async {
@@ -36,6 +53,8 @@ class CityWeatherDetailViewController: UIViewController {
                 self?.collectionView.reloadData()
             }
         }
+        
+        
     }
     
     func setView(){

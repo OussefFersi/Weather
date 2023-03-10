@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityWeatherDetailViewController" customModule="MiWeather" customModuleProvider="target">
             <connections>
+                <outlet property="activityLoader" destination="pQr-aA-JHm" id="Dhq-q7-et1"/>
                 <outlet property="cityNameLabel" destination="CND-4f-WC8" id="HoA-3a-b4e"/>
                 <outlet property="collectionView" destination="GJD-w4-dre" id="oMr-yh-dnA"/>
                 <outlet property="currentTempratureLabel" destination="4hf-hU-rdp" id="fLd-X5-ikn"/>
@@ -78,6 +79,11 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pQr-aA-JHm">
+                    <rect key="frame" x="186" y="416" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
