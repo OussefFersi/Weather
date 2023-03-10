@@ -45,8 +45,6 @@ class CityWeatherDetailViewController: UIViewController {
             viewModel?.getWeather(latitude: city.latitude, longitude: city.longitude)
         }
         
-        
-        
         viewModel?.onCurrentWeather = { [weak self] in
             DispatchQueue.main.async {
                 self?.setView()
@@ -54,7 +52,21 @@ class CityWeatherDetailViewController: UIViewController {
             }
         }
         
+        viewModel?.onError = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.showAlert(message: message)
+            }
+        }
         
+        
+    }
+    
+    func showAlert(message:String){
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setView(){

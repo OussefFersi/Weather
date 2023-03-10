@@ -10,6 +10,7 @@ import Foundation
 
 class CityWeatherDetailViewModel: NSObject {
     var weatherData:Response?
+    var onError: (_ message:String) -> () = {_ in }
     var onCurrentWeather:() -> () = { }
     var onLoading:(Bool) -> () = {_ in }
     var isLoading:Bool = false {
@@ -27,7 +28,12 @@ class CityWeatherDetailViewModel: NSObject {
                     self.weatherData = response
                     self.onCurrentWeather()
                 case .failure(let failure):
-                    print(failure.localizedDescription)
+                    switch failure {
+                    case .error(error: let message):
+                        self.onError(message)
+                    default:
+                        self.onError("Can't load data from server, please try again later")
+                    }
                 }
             }
     }
