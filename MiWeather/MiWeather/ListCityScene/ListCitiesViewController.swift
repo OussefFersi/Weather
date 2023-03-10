@@ -33,13 +33,19 @@ class ListCitiesViewController: UIViewController {
         let addCityVC = AddCityViewController()
         self.navigationController?.pushViewController(addCityVC, animated: true)
     }
+    
+    func goToDetails(city:City){
+        let detailVC = CityWeatherDetailViewController()
+        detailVC.city = city
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension ListCitiesViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let city = viewModel?.cities[indexPath.row]{
-            //go to detail view
+            goToDetails(city: city)
         }
        
     }
