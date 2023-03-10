@@ -102,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8715C60D29BB95B3005165FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8793F06C29BA92A800342DB9 /* MiWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8793F06F29BA92A800342DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8793F07329BA92A800342DB9 /* ListCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCitiesViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +228,7 @@
 				8793F07D29BA92AA00342DB9 /* LaunchScreen.storyboard */,
 				8793F08029BA92AA00342DB9 /* Info.plist */,
 				8793F07829BA92A800342DB9 /* MiWeather.xcdatamodeld */,
+				8715C60D29BB95B3005165FA /* README.md */,
 			);
 			path = MiWeather;
 			sourceTree = "<group>";
